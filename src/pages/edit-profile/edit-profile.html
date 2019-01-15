@@ -1,0 +1,56 @@
+
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+  	<ion-buttons start>
+    	<button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+    <ion-buttons end>
+    	<button ion-button (click)="update(formdata)">Update</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div *ngIf="type=='name'">
+		<ion-item>
+			<ion-label floating>First Name *</ion-label>
+			<ion-input type="text" [(ngModel)]="formdata.fname" name="fname" value="{{userdata.fname}}"></ion-input>
+		</ion-item>
+		<ion-item>
+		    <ion-label floating>Middle Name</ion-label>
+			<ion-input type="text" [(ngModel)]="formdata.mname" name="mname" value="{{userdata.mname}}"></ion-input>
+		</ion-item>
+		<ion-item>
+		    <ion-label floating>Last Name *</ion-label>
+			<ion-input type="text" [(ngModel)]="formdata.lname" name="lname" value="{{userdata.lname}}"></ion-input>
+		</ion-item>
+	</div>
+	<div *ngIf="type=='email'">
+		<ion-item>
+			<ion-label floating>Email *</ion-label>
+			<ion-input type="text" [(ngModel)]="formdata.email" name="email" value="{{userdata.email}}"></ion-input>
+		</ion-item>
+	</div>
+	<div *ngIf="type=='mobile'">
+		<ion-item>
+			<ion-label floating>Mobile No. *</ion-label>
+			<ion-input type="tel" [(ngModel)]="formdata.mobile" name="mobile" value="{{userdata.mobile}}"></ion-input>
+		</ion-item>
+	</div>
+	<div *ngIf="type=='mci_regno'">
+		<ion-item>
+			<ion-label floating>MCI / Reg No *</ion-label>
+			<ion-input type="text" [(ngModel)]="formdata.mci_regno" name="mci_regno" value="{{userdata.mci_regno}}"></ion-input>
+		</ion-item>
+	</div>
+	<div *ngIf="type=='photo'">
+		<ion-item>
+		    <ion-label >Photo *</ion-label>
+		    <ion-input type="file" [(ngModel)]="formdata.photo" name="photo" (change)="changePhoto($event)" accept="image/*"></ion-input>
+		</ion-item>
+	</div>
+</ion-content>

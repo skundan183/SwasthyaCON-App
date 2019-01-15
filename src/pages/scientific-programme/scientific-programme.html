@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Scientific Programme</ion-title>
+  </ion-navbar>
+  <ion-toolbar color='navbarColor'>
+    <ion-segment [(ngModel)]="days" color="light">
+      <ion-segment-button value="day1" (click)="onSegmentSelected('day1')">Day 1 </ion-segment-button>
+      <ion-segment-button value="day2" (click)="onSegmentSelected('day2')">Day 2 </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+	<div *ngIf="days == 'day1'">
+	    <ion-list inset *ngFor="let item of day1">
+		  	<ion-item text-wrap *ngIf="item.type !='0'" (click)="sessionDetails(item.session_id, item.session_name, item.title, item.moderator, item.chairman)">
+			    <h2>{{item.session_name}}</h2>
+			    <p>{{item.title}}</p>
+			    <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+		  	</ion-item>
+		  	<ion-item text-wrap *ngIf="item.type =='0'">
+			    <h2>{{item.session_name}}</h2>
+			    <p>{{item.start_time}} - {{item.end_time}}</p>
+		  	</ion-item>
+		</ion-list>
+	</div>
+	<div *ngIf="days == 'day2'">
+	    <ion-list inset *ngFor="let item of day2">
+		  	<ion-item text-wrap *ngIf="item.type !='0'" (click)="sessionDetails(item.session_id, item.session_name, item.title, item.moderator, item.chairman)">
+			    <h2>{{item.session_name}}</h2>
+			    <p>{{item.title}}</p>
+			    <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+		  	</ion-item>
+		  	<ion-item text-wrap *ngIf="item.type =='0'">
+			    <h2>{{item.session_name}}</h2>
+			    <p>{{item.start_time}} - {{item.end_time}}</p>
+		  	</ion-item>
+		</ion-list>
+	</div>
+</ion-content>

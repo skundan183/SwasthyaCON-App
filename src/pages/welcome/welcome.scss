@@ -1,0 +1,40 @@
+page-welcome {
+	h1 {
+		margin-top: 4% !important;
+		margin-bottom: 4% !important;
+		text-align: center;
+		font-family: 'Poppins', sans-serif;
+    	color: #186AAB;
+    	font-weight: 600;
+	}
+	h4 {
+		color: rgb(192,15,60);
+		font-family: 'Poppins', sans-serif;
+	}
+	h5 {
+		text-align: center;
+	}
+	p {
+		font-family: 'Poppins', sans-serif;
+		font-weight: 500;
+	    font-size: 15px;
+	    color: #5d5d5d;
+	    text-align: justify;
+	    line-height: 26px;
+	}
+	p strong {
+		color: #5d5d5d;
+	}
+	.invitation {
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    background-color: #f5f5f5;
+	    width: 100%;
+	}
+	figcaption {
+		padding: 8px;
+	}
+	figcaption p {
+		text-align: center;
+	}
+}

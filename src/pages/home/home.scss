@@ -1,0 +1,51 @@
+page-home {
+	ion-content {
+	    background: url('../assets/imgs/background.png') no-repeat center center fixed;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    background-size: cover;
+	}
+	h4 {
+		margin-top: 18% !important;
+		margin-bottom: 4% !important;
+		text-align: center;
+    	color: #383838;
+	}
+	.toolbar-content-ios, .toolbar-content-md {
+		background-color:white;
+	}
+	ion-content p {
+		color:#012258;
+		margin: 0px 0;
+		font-weight: 600;
+	}
+	.social-share {
+		position: sticky;
+	    top: 5%;
+	    right: 2%;
+	    background-color: #1496CC;
+	    width: 35px;
+	    height: 35px;
+	    float: right;
+	    border-radius: 5px;
+	}
+	.share-icon{
+		color: white;
+    	margin-top: 10px;
+	}
+	.login {
+		position: sticky;
+	    top: 5%;
+	    left: 2%;
+	    background-color: #1496CC;
+	    width: 35px;
+	    height: 35px;
+	    float: left;
+	    border-radius: 5px;
+	}
+	.login-icon{
+		color: white;
+    	margin-top: 10px;
+	}
+
+}

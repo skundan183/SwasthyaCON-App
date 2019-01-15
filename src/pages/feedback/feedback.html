@@ -1,0 +1,90 @@
+
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Feedback</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<ion-card-header>Quality of Scientific content: </ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-icon name="{{ret1_icon1}}" (click)="ret1_clicked(1)"></ion-icon>
+					<ion-icon name="{{ret1_icon2}}" (click)="ret1_clicked(2)"></ion-icon>
+					<ion-icon name="{{ret1_icon3}}" (click)="ret1_clicked(3)"></ion-icon>
+					<ion-icon name="{{ret1_icon4}}" (click)="ret1_clicked(4)"></ion-icon>
+					<ion-icon name="{{ret1_icon5}}" (click)="ret1_clicked(5)"></ion-icon>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>Speaker Profile: </ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-icon name="{{ret2_icon1}}" (click)="ret2_clicked(1)"></ion-icon>
+					<ion-icon name="{{ret2_icon2}}" (click)="ret2_clicked(2)"></ion-icon>
+					<ion-icon name="{{ret2_icon3}}" (click)="ret2_clicked(3)"></ion-icon>
+					<ion-icon name="{{ret2_icon4}}" (click)="ret2_clicked(4)"></ion-icon>
+					<ion-icon name="{{ret2_icon5}}" (click)="ret2_clicked(5)"></ion-icon>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>Venue: </ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-icon name="{{ret3_icon1}}" (click)="ret3_clicked(1)"></ion-icon>
+					<ion-icon name="{{ret3_icon2}}" (click)="ret3_clicked(2)"></ion-icon>
+					<ion-icon name="{{ret3_icon3}}" (click)="ret3_clicked(3)"></ion-icon>
+					<ion-icon name="{{ret3_icon4}}" (click)="ret3_clicked(4)"></ion-icon>
+					<ion-icon name="{{ret3_icon5}}" (click)="ret3_clicked(5)"></ion-icon>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>Audio Visual arrangement: </ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-icon name="{{ret4_icon1}}" (click)="ret4_clicked(1)"></ion-icon>
+					<ion-icon name="{{ret4_icon2}}" (click)="ret4_clicked(2)"></ion-icon>
+					<ion-icon name="{{ret4_icon3}}" (click)="ret4_clicked(3)"></ion-icon>
+					<ion-icon name="{{ret4_icon4}}" (click)="ret4_clicked(4)"></ion-icon>
+					<ion-icon name="{{ret4_icon5}}" (click)="ret4_clicked(5)"></ion-icon>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>Meals: </ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-icon name="{{ret5_icon1}}" (click)="ret5_clicked(1)"></ion-icon>
+					<ion-icon name="{{ret5_icon2}}" (click)="ret5_clicked(2)"></ion-icon>
+					<ion-icon name="{{ret5_icon3}}" (click)="ret5_clicked(3)"></ion-icon>
+					<ion-icon name="{{ret5_icon4}}" (click)="ret5_clicked(4)"></ion-icon>
+					<ion-icon name="{{ret5_icon5}}" (click)="ret5_clicked(5)"></ion-icon>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>Comments: </ion-card-header>
+		<ion-card-content>
+			<ion-textarea rows="3" [(ngModel)]="comments"></ion-textarea>
+		</ion-card-content>
+	</ion-card>
+	<div padding>
+		<button ion-button block (click)="submit(comments)">Submit</button>
+	</div>
+</ion-content>

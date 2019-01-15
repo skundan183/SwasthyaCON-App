@@ -1,0 +1,21 @@
+page-subscribe {
+
+	ion-content {
+		text-align: center;
+		background-image: linear-gradient(to bottom right, #909294, #86aff9);
+	}
+	ion-card {
+		margin-top: 10% !important;
+	}
+	ion-card ion-card-header {
+		color: #488AFF !important;
+		font-weight: 800;
+		font-size: 2.0rem !important;
+	}
+	ion-input {
+	    border-bottom: 2px solid #488AFF !important;
+	}
+	form{
+		margin-top: 20px;
+	}
+}

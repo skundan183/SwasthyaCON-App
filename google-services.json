@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "458328829250",
+    "firebase_url": "https://swasthyacon-9c19b.firebaseio.com",
+    "project_id": "swasthyacon-9c19b",
+    "storage_bucket": "swasthyacon-9c19b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458328829250:android:8bbd813e690e30c6",
+        "android_client_info": {
+          "package_name": "com.cmpl.swasthyacon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458328829250-1i85k7gi8nbqvc87l0bieol74bol6qqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJhpehk8l6dH_a5UgKg7sKL6GEOLpCvbE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

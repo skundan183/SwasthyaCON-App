@@ -1,0 +1,57 @@
+page-voting {
+	ion-content {
+	    color: #5d5d5d;
+	    line-height: 26px;
+	    font-family: 'Poppins', sans-serif;
+	}
+	h4 {
+		text-align: center;
+	}
+	ion-card-header{
+		text-align: justify;
+	}
+	ion-grid ion-row {
+		padding: 20px 15px !important;
+		margin-bottom: 10px;
+	}
+	.answer1 {
+		background-color: #fd90c7;
+	}
+	.answer2 {
+		background-color: #cbbff5;
+	}
+	.answer3 {
+		background-color: #c9efff;
+	}
+	.answer4 {
+		background-color: #fdcc77;
+	}
+	.selected {
+		color: white !important;
+		background-color: #FD6A02 !important;
+	}
+	.correct {
+		color: white !important;
+		background-color: #28a745 !important;
+	}
+	.wrong {
+		color: white !important;
+		background-color: #dc3545 !important;
+	}
+	ion-col span{
+		font-weight: 600;
+		padding-right: 10px !important;
+	}
+	.loader_img {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+	.toast-container{
+		background-color: color($colors, 'primary');
+		text-align: center;
+	}
+	.toast_container {
+		background-color: white !important;
+	}
+}

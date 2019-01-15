@@ -1,0 +1,27 @@
+page-profile {
+
+	.profile {
+		font-family: 'Poppins', sans-serif;
+		text-align:center;
+		color: #186AAB;
+		font-weight: 800;
+		margin-bottom: 30px
+	}
+
+	img {
+		border: 2px solid #ccc;
+		border-radius: 5%;
+		max-width: 50%
+	}
+
+	.change_btn {
+		position:relative;
+	    left: -5%;
+	    top: 12%;
+	    font-size: 20px;
+	    font-weight:600;
+	    padding: 5px;
+	    border: 2px solid #186AAB;
+	    border-radius: 5px;
+	}
+}

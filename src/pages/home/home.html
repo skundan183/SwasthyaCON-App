@@ -1,0 +1,56 @@
+<ion-header no-border style="background-color:white;">
+  	<ion-navbar style="padding:0px;background-color:white;text-align:center" hideBackButton>
+    	<img src="assets/imgs/header-logo.png" alt="SwasthyaCON Logo">
+  	</ion-navbar>
+</ion-header>
+
+<ion-content padding style="text-align:center">
+	<div class="social-share" (click)="openShare()">
+		<ion-icon name="share" class="share-icon"></ion-icon>
+	</div>
+	<h4>A journey from<br/><strong>TRADITIONAL TO CLINICAL</strong></h4>
+  	<ion-grid style="text-align:center">
+	  	<ion-row>
+		    <ion-col col-4 (click)="click('welcome')">
+		    	<img src="assets/imgs/icons/welcome.png" alt="Welcome icon">
+		      	<p>Welcome</p>
+		    </ion-col>
+		    <ion-col col-4 (click)="click('messages')">
+		    	<img src="assets/imgs/icons/messages.png" alt="Messages icon">
+		    	<p>Messages</p>
+		    </ion-col>
+		    <ion-col col-4 (click)="click('committee')">
+		    	<img src="assets/imgs/icons/committee.png" alt="Committee icon">
+		    	<p>Committee</p>
+		    </ion-col>
+	  	</ion-row>
+	  	<ion-row>
+		    <ion-col col-4 (click)="click('faculty')">
+		    	<img src="assets/imgs/icons/faculty.png" alt="Faculty icon">
+		    	<p>Faculty</p>
+		    </ion-col>
+		    <ion-col col-4 (click)="click('my-swasthyacon')">
+		    	<img src="assets/imgs/icons/swasthyacon.png" alt="MySwasthyaCON icon">
+		      	<p>My SwasthyaCON</p>
+		    </ion-col>
+		    <ion-col col-4 (click)="click('scientific-programme')">
+		    	<img src="assets/imgs/icons/scientific-programme.png" alt="Scientific Programme icon">
+		      	<p>Scientific Programme</p>
+		    </ion-col>
+	  	</ion-row>
+	  	<ion-row>
+	  		<ion-col col-4 (click)="click('registration')">
+		    	<img src="assets/imgs/icons/registration.png" alt="Registration icon">
+		      	<p>Registration</p>
+		    </ion-col>
+		    <ion-col col-4 (click)="click('trade')">
+		    	<img src="assets/imgs/icons/trade.png" alt="Trade icon">
+		      	<p>Trade</p>
+		    </ion-col>
+		    <ion-col col-4 (click)="click('contact')">
+		    	<img src="assets/imgs/icons/contact.png" alt="Contact icon">
+		      	<p>Contact</p>
+		    </ion-col>
+	  	</ion-row>
+	</ion-grid>
+</ion-content>

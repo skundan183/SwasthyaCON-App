@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar color='navbarColor' hideBackButton >
+  	<ion-buttons start>
+      <button ion-button icon-only (click)="click('home')">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>My SwasthyaCON</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-item (click)="click('profile')">
+	    <ion-icon name="person" item-start></ion-icon>My Profile
+	</ion-item>
+	<ion-item (click)="click('voting')">
+	    <ion-icon name="document" item-start></ion-icon>Voting
+	</ion-item>
+	<ion-item (click)="click('ask_question')">
+	    <ion-icon name="help" item-start></ion-icon>Ask Question
+	</ion-item>
+	<ion-item (click)="click('feedback')">
+	    <ion-icon name="create" item-start></ion-icon>Feedback
+	</ion-item>
+	<ion-item (click)="click('logout')">
+	    <ion-icon name="log-out" item-start></ion-icon>Logout
+	</ion-item>
+</ion-content>

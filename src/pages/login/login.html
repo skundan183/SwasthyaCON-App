@@ -1,0 +1,29 @@
+
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form #myForm="ngForm" (ngSubmit)="login(formdata)">
+		<div class="logo">
+		  	<img src="assets/imgs/icons/logo.png" alt="SwasthyaCON Logo">
+		  	<h4>SwasthyaCON 2019</h4>
+		</div>
+		<ion-item>
+			<ion-label floating>Registration Number</ion-label>
+			<ion-input type="number" [(ngModel)]="formdata.regno" name="regno"></ion-input>
+		</ion-item>
+		<ion-item>
+		    <ion-label floating>Email/Mobile No</ion-label>
+			<ion-input type="text" [(ngModel)]="formdata.email_mobile" name="email_mobile"></ion-input>
+		</ion-item>
+		<div style="margin-top: 20px;">
+		  	<button type="submit" ion-button block>Login</button>
+		</div>
+	</form>
+</ion-content>

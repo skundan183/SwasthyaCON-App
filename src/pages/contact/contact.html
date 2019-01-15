@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Contact</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<div class="contact-details">
+		<p><strong>Dr. Yash Patel,<br>Organizing Secretary – SwasthyaCON 2019</strong></p>
+		<p><strong>Address:</strong></p>
+		<p style="margin-top: 0px">SWASTHYA, Opp. Jaymangal BRTS Bus Stop, 132 ft Ring Road, Naranpura, Ahmedabad - 380013 India</p>
+		<p><strong>Phone:</strong> <a href="tel:+91 9586836069" style="text-decoration: none;">+91 9586836069</a> / <a href="tel:+91 7927439977" style="text-decoration: none;">+91 7927439977</a></p>
+		<p style="margin-top: 0px"><strong>Email:</strong> <a href="mailto:swasthyacon@swasthyaindia.com" style="text-decoration: none;">swasthyacon@swasthyaindia.com</a></p>
+	</div>
+	<div class="contact-form">
+		<h2>GET IN TOUCH</h2>
+		<form #myForm="ngForm" (ngSubmit)="submitForm(data)">
+			<ion-list>
+			  	<ion-item>
+				    <ion-label floating>Name *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.name" name="name" required #name="ngModel"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Email</ion-label>
+				    <ion-input type="email" [(ngModel)]="data.email" name="email" ></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Mobile</ion-label>
+				    <ion-input type="number" [(ngModel)]="data.mobile" name="mobile" ></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Subject</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.subject" name="subject" ></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Message</ion-label>
+				    <ion-textarea rows="4" maxLength="500" [(ngModel)]="data.message" name="message"></ion-textarea>
+			  	</ion-item>
+			</ion-list>
+			<button type="submit" [disabled]="!myForm.form.valid" ion-button block>Submit</button>
+		</form>
+	</div>
+</ion-content>

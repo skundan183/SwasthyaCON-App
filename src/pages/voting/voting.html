@@ -1,0 +1,103 @@
+
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Voting</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<h4 padding *ngIf="items.length == 0">{{ error_message }}</h4>
+	<ion-card *ngFor="let item of items">
+		<ion-card-header text-wrap><b>Q: </b>{{ item.question }}</ion-card-header>
+		<ion-card-content>
+			<ion-row>
+				<ion-col col-4>
+					<ion-thumbnail>
+						<img src="{{ item.image1 }}" (click)="onClick(item.image1)">
+					</ion-thumbnail>
+				</ion-col>
+				<ion-col col-4>
+					<ion-thumbnail>
+						<img src="{{ item.image2 }}" (click)="onClick(item.image2)">
+					</ion-thumbnail>
+				</ion-col>
+				<ion-col col-4>
+					<ion-thumbnail>
+						<img src="{{ item.image3 }}" (click)="onClick(item.image3)">
+					</ion-thumbnail>
+				</ion-col>
+				<ion-col col-4>
+					<ion-thumbnail>
+						<img src="{{ item.image4 }}" (click)="onClick(item.image4)">
+					</ion-thumbnail>
+				</ion-col>
+				<ion-col col-4>
+					<ion-thumbnail>
+						<img src="{{ item.image5 }}" (click)="onClick(item.image5)">
+					</ion-thumbnail>
+				</ion-col>
+			</ion-row>
+			<ion-grid *ngIf="is_result == 0">
+				<ion-row class="{{ (selected_option == 'A') ? 'selected' : 'answer1' }}" (click)="selectedOption('A')">
+					<ion-col><span>A.</span> {{ item.answer1 }}</ion-col>
+				</ion-row>
+				<ion-row class="{{ (selected_option == 'B') ? 'selected' : 'answer2' }}" (click)="selectedOption('B')">
+					<ion-col><span>B.</span> {{ item.answer2 }}</ion-col>
+				</ion-row>
+				<ion-row class="{{ (selected_option == 'C') ? 'selected' : 'answer3' }}" (click)="selectedOption('C')">
+					<ion-col><span>C.</span> {{ item.answer3 }}</ion-col>
+				</ion-row>
+				<ion-row class="{{ (selected_option == 'D') ? 'selected' : 'answer4' }}" (click)="selectedOption('D')">
+					<ion-col><span>D.</span> {{ item.answer4 }}</ion-col>
+				</ion-row>
+			</ion-grid>
+			<ion-grid *ngIf="is_result == 1">
+				<ion-row class="answer1" *ngIf="selected_option == '' && is_correct != 'A' && is_wrong != 'A'">
+					<ion-col><span>A.</span> {{ item.answer1 }}</ion-col>
+				</ion-row>
+				<ion-row class="correct" *ngIf="is_correct == 'A'">
+					<ion-col><span>A.</span> {{ item.answer1 }}</ion-col>
+				</ion-row>
+				<ion-row class="wrong" *ngIf="is_wrong == 'A'">
+					<ion-col><span>A.</span> {{ item.answer1 }}</ion-col>
+				</ion-row>
+
+				<ion-row class="answer2" *ngIf="selected_option == '' && is_correct != 'B' && is_wrong != 'B'">
+					<ion-col><span>B.</span> {{ item.answer2 }}</ion-col>
+				</ion-row>
+				<ion-row class="correct" *ngIf="is_correct == 'B'">
+					<ion-col><span>B.</span> {{ item.answer2 }}</ion-col>
+				</ion-row>
+				<ion-row class="wrong" *ngIf="is_wrong == 'B'">
+					<ion-col><span>B.</span> {{ item.answer2 }}</ion-col>
+				</ion-row>
+
+				<ion-row class="answer3" *ngIf="selected_option == '' && is_correct != 'C' && is_wrong != 'C'">
+					<ion-col><span>C.</span> {{ item.answer3 }}</ion-col>
+				</ion-row>
+				<ion-row class="correct" *ngIf="is_correct == 'C'">
+					<ion-col><span>C.</span> {{ item.answer3 }}</ion-col>
+				</ion-row>
+				<ion-row class="wrong" *ngIf="is_wrong == 'C'">
+					<ion-col><span>C.</span> {{ item.answer3 }}</ion-col>
+				</ion-row>
+
+				<ion-row class="answer4" *ngIf="selected_option == '' && is_correct != 'D' && is_wrong != 'D'">
+					<ion-col><span>D.</span> {{ item.answer4 }}</ion-col>
+				</ion-row>
+				<ion-row class="correct" *ngIf="is_correct == 'D'">
+					<ion-col><span>D.</span> {{ item.answer4 }}</ion-col>
+				</ion-row>
+				<ion-row class="wrong" *ngIf="is_wrong == 'D'">
+					<ion-col><span>D.</span> {{ item.answer4 }}</ion-col>
+				</ion-row>
+			</ion-grid>
+			<div padding>
+				<button ion-button block (click)="submit()" *ngIf="disbale_submit == 0">Submit</button>
+				<p *ngIf="wait_msg != ''">{{ wait_msg }}</p>
+			</div>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

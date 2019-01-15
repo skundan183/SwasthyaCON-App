@@ -1,0 +1,17 @@
+page-committee {
+	ion-item-divider {
+		text-align:left;
+		font-weight: 600;
+	}
+	ion-col p {
+		text-align: center;
+		margin-top: 0px;
+	}
+	strong {
+		color: #5d5d5d;
+	}
+	img {
+		border-radius: 5%;
+		border: 1px solid #ccc;
+	}
+}

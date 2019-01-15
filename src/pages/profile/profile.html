@@ -1,0 +1,70 @@
+
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<div class="profile" *ngIf="userdata.photo != '' && userdata.photo != null">
+		<img src="{{userdata.photo}}" alt="Profile Picture">
+		<ion-icon md="md-create" class="change_btn" (click)="editProfile('photo')"></ion-icon>
+		<h4>{{ userdata.fname +" "+userdata.lname }}</h4>
+	</div>
+	<div class="profile" *ngIf="userdata.photo == '' || userdata.photo == null">
+		<img src="asstes/imgs/avatar.png" alt="Profile Picture">
+		<ion-icon md="md-create" class="change_btn" (click)="editProfile('photo')"></ion-icon>
+		<h4><strong>{{ userdata.fname +" "+userdata.lname }}</strong></h4>
+	</div>
+	<ion-item text-wrap>
+		<ion-label><strong>Full Name:</strong> {{ userdata.fname }} {{ userdata.mname }} {{ userdata.lname }}</ion-label>
+		<button ion-button outline item-end (click)="editProfile('name')">edit</button>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Gender:</strong> {{ userdata.gender }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Qualification:</strong> {{ userdata.qualification }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Speciality:</strong> {{ userdata.speciality }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>MCI/Reg No:</strong> {{ userdata.mci_regno }}</ion-label>
+		<button ion-button outline item-end (click)="editProfile('mci_regno')">edit</button>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Email:</strong> {{ userdata.email }}</ion-label>
+		<button ion-button outline item-end (click)="editProfile('email')">edit</button>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Mobile:</strong> {{ userdata.mobile }}</ion-label>
+		<button ion-button outline item-end (click)="editProfile('mobile')">edit</button>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Address:</strong> {{ userdata.street_address }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>City:</strong> {{ userdata.city }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>State:</strong> {{ userdata.state }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Country:</strong> {{ userdata.country }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Pincode:</strong> {{ userdata.pincode }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Contact No:</strong> {{ userdata.contactno }}</ion-label>
+	</ion-item>
+	<ion-item text-wrap>
+		<ion-label><strong>Delegate Type:</strong> {{ userdata.delegate_type }}</ion-label>
+	</ion-item>
+	<div style="margin-top: 20px;">
+		
+	</div>
+</ion-content>

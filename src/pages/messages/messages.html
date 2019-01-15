@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Messages</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<div *ngIf="items.length===0">
+	    <h1 style="font-weight:600;font-size:17px; color: black" align="center">No Message To Display!</h1>
+	    <div class="spacer" style="height: 10px;"></div>
+  	</div>
+	<ion-list inset *ngFor="let item of items">
+	  	<ion-item text-wrap>
+		    <h2>{{item.title}}</h2>
+		    <p>{{item.message}}</p>
+		    <ion-icon *ngIf="item.image!=''" name="attach" item-end (click)="showImage(item.image)"></ion-icon>
+		    <p>{{item.create_date}}</p>
+	  	</ion-item>
+	</ion-list>
+</ion-content>

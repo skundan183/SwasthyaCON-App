@@ -1,0 +1,30 @@
+
+<ion-content padding>
+	<ion-card>
+		<ion-card-header>Keep Yourself Updated</ion-card-header>
+		<ion-card-content>
+			<p>To receive latest trends and updates in Diabetes Management & Care from Swasthya Diabetes Centre, please provide your details:</p>
+			<form #myForm="ngForm" (ngSubmit)="subscribe(formdata)">
+				<ion-item>
+					<ion-label floating>Name *</ion-label>
+					<ion-input type="text" [(ngModel)]="formdata.name" name="name" color="primary"></ion-input>
+				</ion-item>
+				<ion-item>
+				    <ion-label floating>Email *</ion-label>
+					<ion-input type="text" [(ngModel)]="formdata.email" name="email"></ion-input>
+				</ion-item>
+				<ion-item>
+				    <ion-label floating>Mobile *</ion-label>
+					<ion-input type="text" [(ngModel)]="formdata.mobile" name="mobile"></ion-input>
+				</ion-item>
+				<div style="margin-top: 20px;">
+				  	<button type="submit" ion-button>Submit</button>
+				</div>
+			</form>
+			<div style="margin-top: 20px;">
+				<button ion-button color="dark" (click)="noThanks()">No Thanks</button> 
+				<button ion-button color="dark" (click)="remindMeLater()">Remind Me Later</button> 
+			</div>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    
+  </ion-navbar>
+  <ion-toolbar color='navbarColor'>
+  	<h2>{{session_name}}</h2>
+  	<p>{{session_title}}</p>
+    <ion-row>
+      <ion-col col-6><strong>Chairman</strong><br/>{{chairman}}</ion-col>
+      <ion-col col-6><strong>Moderator</strong><br/>{{moderator}}</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+	<ion-list inset *ngFor="let item of session_details">
+		<ion-item text-wrap>
+			<h2>{{item.topic}}</h2>
+			<p>{{item.speakers}} </p>
+			<p>{{item.start_time}} - {{item.end_time}}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

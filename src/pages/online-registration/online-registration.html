@@ -1,0 +1,277 @@
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Online Registration</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<form #myForm="ngForm" (ngSubmit)="register(data)">
+		<ion-input type="hidden" [(ngModel)]="data.gender" name="gender"></ion-input>
+		<ion-input type="hidden" [(ngModel)]="data.delegate_type" name="delegate_type"></ion-input>
+		<ion-input type="hidden" [(ngModel)]="data.acc_person" name="acc_person"></ion-input>
+		<ion-input type="hidden" [(ngModel)]="data.no_of_acc_person" name="no_of_acc_person"></ion-input>
+		<ion-input type="hidden" [(ngModel)]="data.payment_type" name="payment_type" value="Online"></ion-input>
+		<ion-input type="hidden" [(ngModel)]="data.payment_method" name="payment_method"></ion-input>
+		<ion-list>
+		  	<ion-item>
+			    <ion-label floating>First Name *</ion-label>
+			    <ion-input type="text" [(ngModel)]="data.fname" name="fname"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Middle Name</ion-label>
+			    <ion-input type="text" [(ngModel)]="data.mname" name="mname"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Last Name *</ion-label>
+			    <ion-input type="text" [(ngModel)]="data.lname" name="lname"></ion-input>
+		  	</ion-item>
+		  	<ion-item style="margin-top:15px">
+			    <ion-label>Gender</ion-label>
+			    <ion-select [(ngModel)]="data.gender" name="gender">
+			    	<ion-option value="Male" [selected]="true">Male</ion-option>
+				    <ion-option value="Female">Female</ion-option>
+				</ion-select>
+		  	</ion-item>
+		  	<ion-item style="margin-top:15px">
+			    <ion-label >Photo *</ion-label>
+			    <ion-input type="file" [(ngModel)]="data.photo" name="photo" (change)="changePhoto($event)" accept="image/*" #photo></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Qualification *</ion-label>
+			    <ion-input type="text" [(ngModel)]="data.qualification" name="qualification"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Speciality *</ion-label>
+			    <ion-input type="text" [(ngModel)]="data.speciality" name="speciality"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>MCI/Reg No. *</ion-label>
+			    <ion-input type="text" [(ngModel)]="data.mci_regno" name="mci_regno"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Email *</ion-label>
+			    <ion-input type="email" [(ngModel)]="data.email" name="email"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Mobile No. *</ion-label>
+			    <ion-input type="number" [(ngModel)]="data.mobile" name="mobile"></ion-input>
+		  	</ion-item>
+		  	
+		  	<ion-item>
+			    <ion-label floating>Hospital/Correspondance Address </ion-label>
+			    <ion-textarea [(ngModel)]="data.address" name="address" rows="3"></ion-textarea>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>City </ion-label>
+			    <ion-input type="text" [(ngModel)]="data.city" name="city"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>State </ion-label>
+			    <ion-input type="text" [(ngModel)]="data.state" name="state"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Country </ion-label>
+			    <ion-input type="text" [(ngModel)]="data.country" name="country"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Pincode </ion-label>
+			    <ion-input type="text" [(ngModel)]="data.pincode" name="pincode"></ion-input>
+		  	</ion-item>
+		  	<ion-item>
+			    <ion-label floating>Contact No. </ion-label>
+			    <ion-input type="text" [(ngModel)]="data.contactno" name="contactno"></ion-input>
+		  	</ion-item>
+		  	<ion-item style="margin-top:15px">
+			    <ion-label >Delegate Type *</ion-label>
+			    <ion-select [(ngModel)]="data.delegate_type" name="delegate_type" (ionChange)="calcAmount(this.data)">
+                    <ion-option value="" [selected]="true">Select</ion-option>
+                    <ion-option value="National Delegates">National Delegates</ion-option>
+                    <ion-option value="Students">Students</ion-option>
+                    <ion-option value="HCPs">HCPs</ion-option>
+                    <ion-option value="Corporate Delegates">Corporate Delegates</ion-option>
+                    <ion-option value="Delegates + Accommodation">Delegates + Accommodation</ion-option>
+                    <ion-option value="International Delegates + Accommodation">International Delegates + Accommodation</ion-option>
+				</ion-select>
+		  	</ion-item>
+		  	<ion-item style="margin-top:15px">
+			    <ion-label>Accompanying Person</ion-label>
+			    <ion-select [(ngModel)]="data.acc_person" name="acc_person" (ionChange)="calcAmount(this.data)">
+                    <ion-option value="Yes">Yes</ion-option>
+                    <ion-option value="No" [selected]="true">No</ion-option>
+				</ion-select>
+			</ion-item>
+			<ion-item *ngIf="data.acc_person=='Yes'">
+			    <ion-label floating>No of Person(s)</ion-label>
+			    <ion-select [(ngModel)]="data.no_of_acc_person" name="no_of_acc_person" (ionChange)="calcAmount(this.data)">
+                    <ion-option value="1" [selected]="true">1</ion-option>
+                    <ion-option value="2" >2</ion-option>
+				</ion-select>
+			</ion-item>
+			<div *ngIf="data.acc_person=='Yes' && data.no_of_acc_person=='1'">
+				<ion-item>
+				    <ion-label floating>Person Name 1</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.acc_person_name1" name="acc_person_name1"></ion-input>
+				</ion-item>
+			</div>
+			<div *ngIf="data.acc_person=='Yes' && data.no_of_acc_person=='2'">
+				<ion-item>
+				    <ion-label floating>Person Name 1</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.acc_person_name1" name="acc_person_name1"></ion-input>
+				</ion-item>
+				<ion-item>
+				    <ion-label floating>Person Name 2</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.acc_person_name2" name="acc_person_name2"></ion-input>
+				</ion-item>
+			</div>
+			<ion-item>
+				<ion-label floating>Total Payable Amount</ion-label>
+				<ion-input type="text" [(ngModel)]="data.total_payable_amount" name="total_payable_amount" readonly></ion-input>
+			</ion-item>
+		</ion-list>
+
+		<div class="payment_section" style="margin-top:20px">
+			<ion-label>Payment Type *</ion-label>
+			<ion-list radio-group [(ngModel)]="data.payment_type" name="payment_type">
+				<ion-grid>
+					<ion-row>
+						<ion-col col-2>
+							<ion-radio value="Online" (click)="paymentType('Online')" ></ion-radio>
+						</ion-col>
+						<ion-col col-4>Online</ion-col>
+				    	<ion-col col-2>
+				    		<ion-radio value="Offline" (click)="paymentType('Offline')" ></ion-radio>
+				    	</ion-col>
+						<ion-col col-4>Offline</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-list>
+		</div>
+		<div class="payment_section" *ngIf="div_payment_type=='Online'">
+			<ion-list>
+				<ion-item>
+				    <ion-label floating>Currency *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.currency" name="currency" readonly></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Amount *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.amount" name="amount" readonly></ion-input>
+			  	</ion-item>
+			</ion-list>
+			<p style="text-align:center">You will be redirected to payment gateway....</p>
+		</div>
+		<div class="payment_section" *ngIf="div_payment_type=='Offline'">
+			<ion-label>Payment Method *</ion-label>
+			<ion-list radio-group [(ngModel)]="data.payment_method" name="payment_method">
+				<ion-grid>
+					<ion-row>
+						<ion-col col-1><ion-radio value="Cheque" (click)="paymentMethod('Cheque')"></ion-radio></ion-col>
+						<ion-col col-3>Cheque</ion-col>
+				    	<ion-col col-1><ion-radio value="Demand Draft" (click)="paymentMethod('Demand Draft')"></ion-radio></ion-col>
+						<ion-col col-3>Demand Draft</ion-col>
+						<ion-col col-1><ion-radio value="NEFT/RTGS" (click)="paymentMethod('NEFT/RTGS')"></ion-radio></ion-col>
+						<ion-col col-3>NEFT/RTGS</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-list>
+		</div>
+		<div class="payment_section" *ngIf="div_payment_type=='Offline' && div_payment_method=='Cheque'">
+			<ion-list>
+				<ion-item>
+				    <ion-label floating>Currency *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.currency" name="currency" readonly></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Amount *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.amount" name="amount" readonly></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Cheque No. *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.cheque_chequeno" name="cheque_chequeno"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Bank Name *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.cheque_bank_name" name="cheque_bank_name"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Branch Name *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.cheque_branch_name" name="cheque_branch_name"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label>Upload Scan File </ion-label>
+				    <ion-input type="file" [(ngModel)]="data.cheque_scan_file" name="cheque_scan_file" (change)="changeScanFile($event)" accept="image/*"></ion-input>
+			  	</ion-item>
+			</ion-list>
+		</div>
+		<div class="payment_section" *ngIf="div_payment_type=='Offline' && div_payment_method=='Demand Draft'">
+			<ion-list>
+				<ion-item>
+				    <ion-label floating>Currency *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.currency" name="currency"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Amount *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.amount" name="amount"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>DD No. *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.dd_ddno" name="dd_ddno"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Bank Name *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.dd_bank_name" name="dd_bank_name"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Branch Name *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.dd_branch_name" name="dd_branch_name"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label>Upload Scan File </ion-label>
+				    <ion-input type="file" [(ngModel)]="data.dd_scan_file" name="dd_scan_file" (change)="changeScanFile($event)" accept="image/*"></ion-input>
+			  	</ion-item>
+			</ion-list>
+		</div>
+		<div class="payment_section" *ngIf="div_payment_type=='Offline' && div_payment_method=='NEFT/RTGS'">
+			<ion-list>
+				<ion-item>
+				    <ion-label floating>Currency *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.currency" name="currency"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Amount *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.amount" name="amount"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Account No. *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.rtgs_accno" name="rtgs_accno"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Bank Name *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.rtgs_bank_name" name="rtgs_bank_name"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Branch Name *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.rtgs_branch_name" name="rtgs_branch_name"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Account Holder Name *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.rtgs_accholder_name" name="rtgs_accholder_name"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Transaction Id *</ion-label>
+				    <ion-input type="text" [(ngModel)]="data.rtgs_transaction_id" name="rtgs_transaction_id"></ion-input>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label floating>Transaction Date *</ion-label>
+				    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="data.rtgs_transaction_date" name="rtgs_transaction_date"></ion-datetime>
+			  	</ion-item>
+			  	<ion-item>
+				    <ion-label>Upload Scan File </ion-label>
+				    <ion-input type="file" [(ngModel)]="data.rtgs_scan_file" name="rtgs_scan_file" (change)="changeScanFile($event)" accept="image/*"></ion-input>
+			  	</ion-item>
+			</ion-list>
+		</div>
+		<button type="submit" [disabled]="!myForm.form.valid" ion-button block>Submit</button>
+	</form>
+</ion-content>

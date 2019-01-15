@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar color='navbarColor'>
+    <ion-title>Ask Question</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form #myForm="ngForm" (ngSubmit)="submitQuestion(data)">
+		<ion-item>
+			<ion-label>Select Session *</ion-label>
+			<ion-select [(ngModel)]="data.session_name" name="session_name" (ionChange)="setTitle(this.data)">
+				<ion-option *ngFor="let item of items" [value] = "item.session_name">{{item.session_name}}</ion-option>
+			</ion-select>
+		</ion-item>
+		<p style="text-align: center">{{ session_title }}</p>
+		<ion-item>
+			<ion-label floating>Question *</ion-label>
+		    <ion-textarea [(ngModel)]="data.question" name="question" rows="5"></ion-textarea>
+		</ion-item>
+		<div style="margin-top: 20px">
+			<button type="submit" ion-button block>Submit</button>
+		</div>
+	</form>
+</ion-content>
